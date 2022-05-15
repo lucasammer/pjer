@@ -1,4 +1,4 @@
-./Scrips/activate
+./scrips/activate
 
 pip install wheel
 pip install twine

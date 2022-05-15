@@ -1,2 +1,2 @@
 import pjer
-pjer.test.test()
+pjer.test().test()
