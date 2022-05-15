@@ -1,1 +1,1 @@
-from pjer.main import test
+from pjer.main import sprite
