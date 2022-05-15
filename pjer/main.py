@@ -1,4 +1,6 @@
 import turtle
+import tkinter
+turtle.title('pjer')
 class sprite():
     def __init__(self, model, speed):
       turtle.pencolor('#000000')
@@ -62,3 +64,14 @@ class sprite():
           turtle.forward(diffrence)
         
         turtle.ht()
+
+class prefs():
+  def setTitle(title):
+    turtle.title(title)
+
+  def setIcon(icoPath):
+    root = turtle.Screen()._root
+    root.iconbitmap(icoPath)
+
+  def screenSize(height,width):
+    turtle.screensize(canvwidth=width, canvheight=height)
