@@ -11,7 +11,12 @@ class sprite():
           "y":y
         }
 
+    def move(self,ox,oy,xc,yc,diffrence):
+      self.undraw(ox,oy,diffrence)
+      self.draw(ox+(xc*diffrence),oy+(yc*diffrence),diffrence)
+  
     def draw(self,x,y, diffrence):
+      turtle.pencolor('#000000')
       turtle.penup()
       turtle.goto(x,y)
       turtle.pensize(diffrence)
