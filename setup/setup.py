@@ -6,10 +6,10 @@ with open("README.md", "r") as fhandle:
 
 setuptools.setup(
     name="pjer", # Put your username here!
-    version="0.0.4", # The version of your package!
+    version="0.0.6", # The version of your package!
     author="lucasammer", # Your name here!
     author_email="me@lucasammer.com", # Your e-mail here!
-    description="A python game engin", # A short description here!
+    description="A python game engine", # A short description here!
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/lucasammer/pjer", # Link your package website here! (most commonly a GitHub repo)
