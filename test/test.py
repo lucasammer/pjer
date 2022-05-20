@@ -8,4 +8,5 @@ model=[
     1,0,1,0,
 ]
 
-pjer.sprite
+pjer.sprite(model,10).draw(0,0,10)
+handydandy.userinput.quitpause('not end')
