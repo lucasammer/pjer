@@ -148,7 +148,8 @@ class sprite():
       t.pencolor('#ffffff')
       t.speed(self.speed)
       t.ht()
-      t.pensize(size+2)
+      t.pensize(size+4)
+      t.ht()
       if t==t1:
         wt = threading.Thread(target=turtleTask(t1t,t,size), args=(1,), daemon=True)
         wt.start()
@@ -161,6 +162,9 @@ class sprite():
       elif t==t4:
         zt = threading.Thread(target=turtleTask(t4t,t,size), args=(1,), daemon=True)
         zt.start()
+  def move(self,oldX,oldY,newX,newY, size):
+    self.undraw(self,oldX,oldY,size)
+    self.draw(self,newX,newY,size)
 class prefs():
   def setTitle(title):
     turtle.title(title)
