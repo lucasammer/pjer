@@ -3,11 +3,12 @@ import threading
 
 turtle.title('pjer')
 class sprite():
-  def __init__(self, model, speed):
+  def __init__(self, model, speed, size):
       turtle.pencolor('#000000')
       self.model = model
       turtle.speed(speed)
       self.speed=speed
+      self.size=size
     
   class classic():
     def __init__(self, model, speed):
@@ -73,7 +74,9 @@ class sprite():
         turtle.ht()
 
   
-  def draw(self,x,y,size):
+  def draw(self,x,y):
+    self.x = x
+    self.y = y
     t1t=[]
     t2t=[]
     t3t=[]
@@ -97,29 +100,29 @@ class sprite():
     for t in tl:
       t.penup()
     t1.goto(x,y)
-    t2.goto(x,y-(size))
-    t3.goto(x,y-(size*2))
-    t4.goto(x,y-(size*3))
+    t2.goto(x,y-(self.size))
+    t3.goto(x,y-(self.size*2))
+    t4.goto(x,y-(self.size*3))
     for t in tl:
       t.shape('square')
       t.pencolor('#000000')
       t.speed(self.speed)
       t.ht()
-      t.pensize(size)
+      t.pensize(self.size)
       if t==t1:
-        wt = threading.Thread(target=turtleTask(t1t,t,size), args=(1,), daemon=True)
+        wt = threading.Thread(target=turtleTask(t1t,t,self.size), args=(1,), daemon=True)
         wt.start()
       elif t==t2:
-        xt = threading.Thread(target=turtleTask(t2t,t,size), args=(1,), daemon=True)
+        xt = threading.Thread(target=turtleTask(t2t,t,self.size), args=(1,), daemon=True)
         xt.start()
       elif t==t3:
-        yt = threading.Thread(target=turtleTask(t3t,t,size), args=(1,), daemon=True)
+        yt = threading.Thread(target=turtleTask(t3t,t,self.size), args=(1,), daemon=True)
         yt.start()
       elif t==t4:
-        zt = threading.Thread(target=turtleTask(t4t,t,size), args=(1,), daemon=True)
+        zt = threading.Thread(target=turtleTask(t4t,t,self.size), args=(1,), daemon=True)
         zt.start()
 
-  def undraw(self,x,y,size):
+  def undraw(self,x,y):
     t1t=[]
     t2t=[]
     t3t=[]
@@ -140,31 +143,35 @@ class sprite():
     t3=turtle.Turtle()
     t4=turtle.Turtle()
     tl=[t1,t2,t3,t4]
+    for t in tl:
+      t.penup()
     t1.goto(x,y)
-    t2.goto(x,y-(size))
-    t3.goto(x,y-(size*2))
-    t4.goto(x,y-(size*3))
+    t2.goto(x,y-(self.size))
+    t3.goto(x,y-(self.size*2))
+    t4.goto(x,y-(self.size*3))
     for t in tl:
       t.pencolor('#ffffff')
       t.speed(self.speed)
       t.ht()
-      t.pensize(size+4)
+      t.pensize(self.size+4)
       t.ht()
       if t==t1:
-        wt = threading.Thread(target=turtleTask(t1t,t,size), args=(1,), daemon=True)
+        wt = threading.Thread(target=turtleTask(t1t,t,self.size), args=(1,), daemon=True)
         wt.start()
       elif t==t2:
-        xt = threading.Thread(target=turtleTask(t2t,t,size), args=(1,), daemon=True)
+        xt = threading.Thread(target=turtleTask(t2t,t,self.size), args=(1,), daemon=True)
         xt.start()
       elif t==t3:
-        yt = threading.Thread(target=turtleTask(t3t,t,size), args=(1,), daemon=True)
+        yt = threading.Thread(target=turtleTask(t3t,t,self.size), args=(1,), daemon=True)
         yt.start()
       elif t==t4:
-        zt = threading.Thread(target=turtleTask(t4t,t,size), args=(1,), daemon=True)
+        zt = threading.Thread(target=turtleTask(t4t,t,self.size), args=(1,), daemon=True)
         zt.start()
-  def move(self,oldX,oldY,newX,newY, size):
-    self.undraw(oldX,oldY,size)
-    self.draw(newX,newY,size)
+  def move(self,newX,newY):
+    self.undraw(self.x,self.y)
+    self.draw(newX,newY)
+    self.x = newX
+    self.y = newY
 class prefs():
   def setTitle(title):
     turtle.title(title)
@@ -177,7 +184,7 @@ class prefs():
     def screenSize(height,width):
       turtle.screensize(canvwidth=width, canvheight=height)
     def BGcolor(color):
-      turtle.bgcolor(color)
+      turtle.bgcolor()
   
 def turtleTask(task,t,size):
     taskCheck=[]
