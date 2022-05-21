@@ -1,7 +1,9 @@
 import turtle
 import threading
 
+turtle.ht()
 turtle.title('pjer')
+
 class sprite():
   def __init__(self, model, speed, size):
       turtle.pencolor('#000000')
@@ -99,6 +101,7 @@ class sprite():
     tl=[t1,t2,t3,t4]
     for t in tl:
       t.penup()
+      t.ht()
     t1.goto(x,y)
     t2.goto(x,y-(self.size))
     t3.goto(x,y-(self.size*2))
@@ -145,6 +148,7 @@ class sprite():
     tl=[t1,t2,t3,t4]
     for t in tl:
       t.penup()
+      t.ht()
     t1.goto(x,y)
     t2.goto(x,y-(self.size))
     t3.goto(x,y-(self.size*2))
