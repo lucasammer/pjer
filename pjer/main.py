@@ -180,6 +180,10 @@ class sprite():
     self.draw(newX,newY)
     self.x = newX
     self.y = newY
+
+  def kill(self):
+    self.undraw(self.x,self.y)
+    self = ""
 class prefs():
   def setTitle(title):
     turtle.title(title)
