@@ -163,8 +163,8 @@ class sprite():
         zt = threading.Thread(target=turtleTask(t4t,t,size), args=(1,), daemon=True)
         zt.start()
   def move(self,oldX,oldY,newX,newY, size):
-    self.undraw(self,oldX,oldY,size)
-    self.draw(self,newX,newY,size)
+    self.undraw(oldX,oldY,size)
+    self.draw(newX,newY,size)
 class prefs():
   def setTitle(title):
     turtle.title(title)
@@ -177,7 +177,7 @@ class prefs():
     def screenSize(height,width):
       turtle.screensize(canvwidth=width, canvheight=height)
     def BGcolor(color):
-      turtle.bgcolor()
+      turtle.bgcolor(color)
   
 def turtleTask(task,t,size):
     taskCheck=[]

@@ -6,7 +6,7 @@ with open("README.md", "r") as fhandle:
 
 setuptools.setup(
     name="pjer", # Put your username here!
-    version="0.0.8", # The version of your package!
+    version="0.0.9", # The version of your package!
     author="lucasammer", # Your name here!
     author_email="me@lucasammer.com", # Your e-mail here!
     description="A python game engine", # A short description here!
