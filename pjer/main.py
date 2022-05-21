@@ -75,13 +75,6 @@ class sprite():
           turtle.forward(diffrence)
         
         turtle.ht()
-
-
-
-
-
-
-  
   
   def draw(self,x,y):
     self.x = x
