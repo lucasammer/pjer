@@ -5,12 +5,13 @@ turtle.ht()
 turtle.title('pjer')
 
 class sprite():
-  def __init__(self, model, speed, size):
+  def __init__(self, model, speed, size,anim):
       turtle.pencolor('#000000')
       self.model = model
       turtle.speed(speed)
       self.speed=speed
       self.size=size
+      self.amim=anim
     
   class classic():
     def __init__(self, model, speed):
@@ -102,9 +103,14 @@ class sprite():
     for t in tl:
       t.penup()
       t.ht()
-    t1.st()
-    t1.goto(x,y)
-    t.ht()
+
+    if(self.amim):
+      t1.goto(self.x,self.y)
+      t1.st()
+      t1.goto(x,y)
+      t.ht()
+    else:
+      t1.goto(x,y)
     t2.goto(x,y-(self.size))
     t3.goto(x,y-(self.size*2))
     t4.goto(x,y-(self.size*3))
