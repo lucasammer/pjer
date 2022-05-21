@@ -76,6 +76,12 @@ class sprite():
         
         turtle.ht()
 
+
+
+
+
+
+  
   
   def draw(self,x,y):
     self.x = x
