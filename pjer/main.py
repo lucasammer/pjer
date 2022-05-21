@@ -102,7 +102,9 @@ class sprite():
     for t in tl:
       t.penup()
       t.ht()
+    t1.st()
     t1.goto(x,y)
+    t.ht()
     t2.goto(x,y-(self.size))
     t3.goto(x,y-(self.size*2))
     t4.goto(x,y-(self.size*3))
