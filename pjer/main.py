@@ -102,15 +102,11 @@ class sprite():
     tl=[t1,t2,t3,t4]
     for t in tl:
       t.penup()
-      t.ht()
-
-    if(self.amim):
-      t1.goto(self.x,self.y)
-      t1.st()
-      t1.goto(x,y)
-      t.ht()
-    else:
-      t1.goto(x,y)
+      if self.amim:
+        t.st()
+      else:
+        t.ht()
+    t1.goto(x,y)
     t2.goto(x,y-(self.size))
     t3.goto(x,y-(self.size*2))
     t4.goto(x,y-(self.size*3))
