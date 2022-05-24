@@ -75,6 +75,13 @@ class sprite():
           turtle.forward(diffrence)
         
         turtle.ht()
+
+
+
+
+
+
+  
   
   def draw(self,x,y):
     self.x = x
@@ -183,6 +190,22 @@ class sprite():
   def kill(self):
     self.undraw(self.x,self.y)
     self = ""
+
+  def XCol(self,object):
+    ox=object.x
+
+    
+    if self.x==ox or self.x-self.size==ox or self.x-(2*self.size)==ox or self.x-(3*self.size)==ox:
+      return True
+  def YCol(self,object):
+    if self.y==object.y or self.y-self.size==object.y or self.y-(2*self.size)==object.y or self.y-(3*self.size)==object.y:
+      return True
+    else: return False
+  def col(self,object):
+    if self.XCol(object) and self.YCol(object):
+      return True
+    else:return False
+  
 class prefs():
   def setTitle(title):
     turtle.title(title)
